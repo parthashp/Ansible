@@ -1,0 +1,11 @@
+- hosts: localhost
+  vars:
+    - destination: /var/lib/awx/projects/git_download
+  tasks:
+    - name: App | Cloning repos + submodules
+      git: repo=https://github.com/parthashp/Ansible.git
+           dest=/var/lib/awx/projects/download
+           accept_hostkey=yes
+           force=yes
+           recursive=no
+           key_file=/root/.ssh/id_rsa.pub
